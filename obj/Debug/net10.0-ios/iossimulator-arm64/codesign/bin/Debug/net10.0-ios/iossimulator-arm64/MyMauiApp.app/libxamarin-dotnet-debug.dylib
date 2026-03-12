@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/sergiolopez/MyMauiApp/bin/Debug/net10.0-ios/iossimulator-arm64/MyMauiApp.app/libxamarin-dotnet-debug.dylib
