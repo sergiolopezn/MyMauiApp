@@ -1,0 +1,76 @@
+# Build output directories
+bin/
+obj/
+
+# Visual Studio cache and user-specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.sln.user
+*.suo
+*.cache
+
+# IDE and editor files
+*.swp
+*.swo
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# NuGet Package Manager
+*.nupkg
+*.snupkg
+.nuget/
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# User-specific settings
+Properties/launchSettings.json
+
+# Android platform build artifacts
+Platforms/Android/bin/
+Platforms/Android/obj/
+*.apk
+*.aab
+*.keystore
+
+# iOS platform build artifacts
+Platforms/iOS/bin/
+Platforms/iOS/obj/
+
+# macOS and Mac Catalyst platform build artifacts
+Platforms/MacCatalyst/bin/
+Platforms/MacCatalyst/obj/
+
+# Windows platform build artifacts
+Platforms/Windows/bin/
+Platforms/Windows/obj/
+*.appx
+*.appxbundle
+
+# Temporary and log files
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Project-specific exclusions
+# Exclude locally compiled assemblies
+*.dll
+*.pdb
+*.exe
+
+# Resource caches
+_AxRc.rc
+rc.log
+
