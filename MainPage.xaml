@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyMauiApp.MainPage">
+             x:Class="MyMauiApp.MainPage"
+             xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
+             x:DataType="viewmodel:MainViewModel">
 
     <Grid RowDefinitions="100, Auto, *" 
           ColumnDefinitions=".75*, .25*"
@@ -11,23 +13,28 @@
             Grid.ColumnSpan="2"
             Source="dotnet_bot.png"
             />
-        <Entry Placeholder="Enter task" Grid.Row="1"/>
-        <Button Text="Add" Grid.Row="1" Grid.Column="1"/>
+        <Entry Placeholder="Enter task" 
+               Grid.Row="1"
+               Text="{Binding NewTask}"
+               />
+        <Button 
+            Text="Add" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Command="{Binding AddTaskCommand}"/>
         
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Task 1</x:String>
-                    <x:String>Task 2</x:String>
-                    <x:String>Task 3</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Tasks}">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Delete" BackgroundColor="Red"/>
+                                <SwipeItem 
+                                    Text="Delete" 
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=RemoveTaskCommand}"
+                                    CommandParameter="{Binding .}"
+                                    />
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid Padding="5" Margin="5">
