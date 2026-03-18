@@ -6,12 +6,10 @@ namespace MyMauiApp.ViewModel;
 
 public partial class MainViewModel : ObservableObject
 {
-    [ObservableProperty] 
-    string newTask = string.Empty;
-    
-    [ObservableProperty]
-    ObservableCollection<string> tasks = new();
-    
+    [ObservableProperty] string newTask = string.Empty;
+
+    [ObservableProperty] ObservableCollection<string> tasks = new();
+
     [RelayCommand]
     public void AddTask(string task)
     {
@@ -30,5 +28,10 @@ public partial class MainViewModel : ObservableObject
             Tasks.Remove(task);
         }
     }
-    
+
+    [RelayCommand]
+    async Task EditTask(string task)
+    {
+        await Shell.Current.GoToAsync($"{nameof(DetailPage)}?task={task}");
+    }
 }
