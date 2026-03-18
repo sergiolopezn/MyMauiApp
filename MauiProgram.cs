@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace MyMauiApp;
 
@@ -13,7 +14,9 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			}).UseMauiCommunityToolkit();
+		
+		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<ViewModel.MainViewModel>();
 		

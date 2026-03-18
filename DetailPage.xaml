@@ -7,7 +7,7 @@
              x:DataType="viewmodel:DetailViewModel"
              Title="Detail item">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="20">
             <Label Text="{Binding Task}"
                    FontSize="24"
                    HorizontalOptions="Center"
