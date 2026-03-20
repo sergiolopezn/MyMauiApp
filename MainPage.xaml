@@ -6,55 +6,8 @@
              xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
              x:DataType="viewmodel:MainViewModel">
 
-    <Grid RowDefinitions="100, Auto, *"
-          ColumnDefinitions=".75*, .25*"
-          Padding="10"
-          RowSpacing="10">
-        <Image
-            Grid.ColumnSpan="2"
-            Source="dotnet_bot.png" />
-        <Entry Placeholder="Enter task"
-               Grid.Row="1"
-               Text="{Binding NewTask}" />
-        <Button
-            Text="Add"
-            Grid.Row="1"
-            Grid.Column="1"
-            Command="{Binding AddTaskCommand}" />
-
-        <CollectionView
-            Grid.Row="2"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding Tasks}"
-            SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type x:String}">
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem
-                                    Text="Delete"
-                                    BackgroundColor="Red"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=RemoveTaskCommand}"
-                                    CommandParameter="{Binding .}" />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Grid Padding="5" Margin="5">
-                            <Border>
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=EditTaskCommand}"
-                                        CommandParameter="{Binding .}" />
-                                </Border.GestureRecognizers>
-                                <Label Text="{Binding .}" FontSize="24" Padding="5" />
-                            </Border>
-                        </Grid>
-                    </SwipeView>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-    </Grid>
-
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Button Text="Go to Components" Command="{Binding NavigateToComponentsCommand}" />
+        <Button Text="Add task screen" Command="{Binding NavigateToAddTaskCommand}" />
+    </VerticalStackLayout>
 </ContentPage>

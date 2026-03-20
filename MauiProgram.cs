@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using MyMauiApp.Screens;
 
 namespace MyMauiApp;
 
@@ -20,6 +21,11 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<ViewModel.MainViewModel>();
 		
+		builder.Services.AddSingleton<ComponentsPage>();
+		
+		builder.Services.AddSingleton<AddTask>();
+		builder.Services.AddSingleton<ViewModel.AddTaskViewModel>();
+		
 		builder.Services.AddSingleton<ContentPage>();
 		builder.Services.AddSingleton<ViewModel.DetailViewModel>();
 #if DEBUG
@@ -29,3 +35,9 @@ public static class MauiProgram
 		return builder.Build();
 	}
 }
+// I'm android developer so I want learn maui with c# but I don't know some aspects aboud de maui framework therefore I want create a simple app where i can implement MVVM architecture, work with UI layouts, navigation, and data binding, Integrate REST APIs, use device features (camera, GPS, sensors), Implement authentication and secure storage, 
+// and handle platform-specific code.
+// I want to create a simple app that displays a list of items fetched from a REST API,
+// allows users to view item details, and includes basic authentication.
+// This will help me understand the core concepts of MAUI and how to build cross-platform applications
+// using C#.
