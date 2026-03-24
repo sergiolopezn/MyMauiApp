@@ -11,6 +11,7 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(AddTask), typeof(AddTask));
 		Routing.RegisterRoute(nameof(DetailPage), typeof(DetailPage));
 		Routing.RegisterRoute(nameof(ComponentsPage), typeof(ComponentsPage));
+		Routing.RegisterRoute(nameof(PhoneResourcesPage), typeof(PhoneResourcesPage));
 		
 	}
 }

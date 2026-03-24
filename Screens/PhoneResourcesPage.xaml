@@ -2,8 +2,30 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyMauiApp.Screens.PhoneResourcesPage">
+             x:Class="MyMauiApp.Screens.PhoneResourcesPage"
+             xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
+             x:DataType="viewmodel:PhoneResourceViewModel">
     <ContentPage.Content>
-        
+        <ScrollView Orientation="Vertical">
+            <StackLayout Padding="20" Spacing="20">
+                <Label Text="Phone Resources" FontSize="24" HorizontalOptions="Center" />
+                <Label Text="This page demonstrates how to use phone-specific resources in .NET MAUI." FontSize="16" HorizontalOptions="Center" />
+                <Button Text="Location request" Command="{Binding GetCurrentLocationCommand}"/>
+                <Button Text="Bluetooth request" Command="{Binding RequestBluetoothPermissionCommand}"/>
+                <Button Text="Camera request / Take photo" Command="{Binding TakePhotoCommand}"/>
+                <Button Text="Open gallery" Command="{Binding OpenGalleryCommand}"/>
+
+                <Button Text="Scan Bluetooth devices" Command="{Binding ScanBluetoothDevicesCommand}"/>
+                <Label Text="Discovered Bluetooth Devices" FontSize="18" />
+                <CollectionView ItemsSource="{Binding BluetoothDevices}" HeightRequest="250">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding .}" />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

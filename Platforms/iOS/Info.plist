@@ -28,5 +28,13 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location to function.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app needs access to Bluetooth to discover nearby devices.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to the photo gallery to select images.</string>
 </dict>
 </plist>

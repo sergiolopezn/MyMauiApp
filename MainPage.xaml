@@ -9,5 +9,6 @@
     <VerticalStackLayout Padding="20" Spacing="10">
         <Button Text="Go to Components" Command="{Binding NavigateToComponentsCommand}" />
         <Button Text="Add task screen" Command="{Binding NavigateToAddTaskCommand}" />
+        <Button Text="Hardware screen" Command="{Binding NavigateHardwareScreenCommand}" />
     </VerticalStackLayout>
 </ContentPage>

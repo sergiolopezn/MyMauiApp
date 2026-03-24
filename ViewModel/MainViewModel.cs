@@ -17,4 +17,10 @@ public partial class MainViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync(nameof(AddTask));
     }
+    
+    [RelayCommand]
+    async Task NavigateHardwareScreen()
+    {
+        await Shell.Current.GoToAsync(nameof(PhoneResourcesPage));
+    }
 }

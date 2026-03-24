@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using MyMauiApp.Screens;
+using MyMauiApp.ViewModel;
 
 namespace MyMauiApp;
 
@@ -19,15 +20,18 @@ public static class MauiProgram
 		
 		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 		builder.Services.AddSingleton<MainPage>();
-		builder.Services.AddSingleton<ViewModel.MainViewModel>();
+		builder.Services.AddSingleton<MainViewModel>();
 		
 		builder.Services.AddSingleton<ComponentsPage>();
 		
 		builder.Services.AddSingleton<AddTask>();
-		builder.Services.AddSingleton<ViewModel.AddTaskViewModel>();
+		builder.Services.AddSingleton<AddTaskViewModel>();
 		
 		builder.Services.AddSingleton<ContentPage>();
-		builder.Services.AddSingleton<ViewModel.DetailViewModel>();
+		builder.Services.AddSingleton<DetailViewModel>();
+		
+		builder.Services.AddSingleton<PhoneResourcesPage>();
+		builder.Services.AddSingleton<PhoneResourceViewModel>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

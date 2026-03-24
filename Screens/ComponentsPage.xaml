@@ -3,42 +3,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyMauiApp.Screens.ComponentsPage">
-    <StackLayout Padding="20">
-        <Label Text="Label" FontSize="24" HorizontalOptions="Center" />
-        <Button Text="Button"/>
-        <Entry Text="This is a entry value" Placeholder="Entry"/>
-        
-        <HorizontalStackLayout Spacing="10" Padding="10">
-            <Label Text="Enable Feature" VerticalOptions="Center" />
-            <Switch x:Name="FeatureSwitch" 
-                    ThumbColor="Green"
-                    OnColor="Orange"
-                    IsToggled="True" />
-        </HorizontalStackLayout>
-        
-        <Image Source="dotnet_bot.png" />
-        
-        <Label Text="Date picker"/>
-        <DatePicker
-            x:Name="MyDatePicker"
-            Date="{Binding SelectedDate}"
-            Format="D"
-            MinimumDate="01/01/2023"
-            MaximumDate="12/31/2028" />
-        
-        <ActivityIndicator IsRunning="true" Color="Green" />
-        
-        <HorizontalStackLayout Padding="0,10,0,10">
-            <CheckBox x:Name="checkBox1" Color="Blue" />
-            <Label Text="Agree to terms" VerticalOptions="Center" />
-        </HorizontalStackLayout>
-        
-        <Label Text="Slider component" VerticalOptions="Center" />
-        <Slider Minimum="0"
-                Maximum="100"
-                Value="50"
-                MinimumTrackColor="Blue"
-                MaximumTrackColor="Gray"
-                ThumbColor="DarkBlue" />
-    </StackLayout>
+    <ScrollView Orientation="Vertical">
+        <StackLayout Padding="20" Spacing="20">
+            <Label Text="UI Components" FontSize="24" HorizontalOptions="Center" />
+            <Label Text="Label" HorizontalOptions="Center" />
+            <Button Text="Button"/>
+            <Entry Text="This is a entry value" Placeholder="Entry"/>
+            
+            <HorizontalStackLayout Spacing="10" Padding="10">
+                <Label Text="Enable Feature" VerticalOptions="Center" />
+                <Switch x:Name="FeatureSwitch" 
+                        ThumbColor="Green"
+                        OnColor="Orange"
+                        IsToggled="True" />
+            </HorizontalStackLayout>
+            
+            <Image Source="dotnet_bot.png" />
+            
+            <Label Text="Date picker"/>
+            <DatePicker
+                x:Name="MyDatePicker"
+                Date="{Binding SelectedDate}"
+                Format="D"
+                MinimumDate="01/01/2023"
+                MaximumDate="12/31/2028" />
+            
+            <ActivityIndicator IsRunning="true" Color="Green" />
+            
+            <HorizontalStackLayout Padding="0,10,0,10">
+                <CheckBox x:Name="checkBox1" Color="Blue" />
+                <Label Text="Agree to terms" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            
+            <Label Text="Slider component" VerticalOptions="Center" />
+            <Slider Minimum="0"
+                    Maximum="100"
+                    Value="50"
+                    MinimumTrackColor="Blue"
+                    MaximumTrackColor="Gray"
+                    ThumbColor="DarkBlue" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
