@@ -23,4 +23,10 @@ public partial class MainViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync(nameof(PhoneResourcesPage));
     }
+
+    [RelayCommand]
+    async Task NavigateToApiRequestScreen()
+    {
+        await Shell.Current.GoToAsync(nameof(ApiRequestPage));
+    }
 }

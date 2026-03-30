@@ -86,4 +86,8 @@
 	  </Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Data/Network/" />
+	</ItemGroup>
+
 </Project>

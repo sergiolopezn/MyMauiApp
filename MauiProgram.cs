@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using MyMauiApp.Screens;
 using MyMauiApp.ViewModel;
+using MyMauiApp.Data;
+using MyMauiApp.Data.Network;
 
 namespace MyMauiApp;
 
@@ -19,6 +21,11 @@ public static class MauiProgram
 			}).UseMauiCommunityToolkit();
 		
 		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+		
+		// Register API services
+		builder.Services.AddSingleton<ApiRestService>();
+		builder.Services.AddSingleton<ApiRequestRepository>();
+		
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainViewModel>();
 		
@@ -32,6 +39,11 @@ public static class MauiProgram
 		
 		builder.Services.AddSingleton<PhoneResourcesPage>();
 		builder.Services.AddSingleton<PhoneResourceViewModel>();
+		
+		// Register API Request Page and ViewModel
+		builder.Services.AddSingleton<ApiRequestPage>();
+		builder.Services.AddSingleton<ApiRequestViewModel>();
+
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif

@@ -1,15 +1,10 @@
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Storage;
 using Plugin.BLE;
 using Plugin.BLE.Abstractions;
 using Plugin.BLE.Abstractions.Contracts;
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Threading;
 
 namespace MyMauiApp.ViewModel;
 
