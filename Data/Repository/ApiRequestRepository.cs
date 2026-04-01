@@ -17,7 +17,7 @@ public class ApiRequestRepository
         _apiRestService = apiRestService;
     }
     
-    public async Task<ApiRestResponse> GetDataAsync(string page, string limit)
+    public async Task<List<AnimalsData>> GetDataAsync(string page, string limit)
     {
         return await _apiRestService.GetAsync(page, limit);
     }

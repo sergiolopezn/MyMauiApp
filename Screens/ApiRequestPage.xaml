@@ -5,6 +5,7 @@
              x:DataType="viewmodel:ApiRequestViewModel"
              xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
              Title="ApiRequestPage">
+<ScrollView Orientation="Vertical">
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"
@@ -16,18 +17,29 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Command="{Binding LoadDataCommand}"/>
-        
+
+        <ActivityIndicator 
+            Color="Green"
+            
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+        />
         <CollectionView
-            ItemsSource="{Binding DataArt}"
+            ItemsSource="{Binding AnimalsData}"
             VerticalOptions="FillAndExpand">    
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding title}" FontSize="18" />
-                        <Label Text="{Binding publication_history}" FontSize="14" />
-                    </StackLayout>
+                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="20" Margin="5">
+                        <StackLayout Padding="10">
+                            <Image Source="{Binding image_link}" HeightRequest="280" Aspect="AspectFill" />
+                            <Label Text="{Binding name}" FontSize="Large" />
+                            <Label Text="{Binding origin}" FontSize="Medium" />
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

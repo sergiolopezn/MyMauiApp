@@ -7,10 +7,11 @@ public class ApiRestService
 {
     HttpClient _httpClient;
     JsonSerializerOptions _jsonSerializerOptions;
-    string _baseAddress = "https://api.artic.edu/api/v1"; // Your API base address
+    string _baseAddress = "https://api.api-ninjas.com/v1/cats"; // Your API base address
     public ApiRestService()
     {
         _httpClient = new HttpClient();
+        _httpClient.DefaultRequestHeaders.Add("X-Api-Key", "4SZ5WfrPuGTotzkXTdowqD4xr7qrqBPvmRULAP34"); // Replace with your actual API key
         _jsonSerializerOptions = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
@@ -19,17 +20,17 @@ public class ApiRestService
         };
     }
 
-    public async Task<ApiRestResponse> GetAsync(string page, string limit)
+    public async Task<List<AnimalsData>> GetAsync(string page, string limit)
     {
-        var result = new ApiRestResponse();
+        List<AnimalsData> result = new ();
         try
         {
-            var endpoint = $"{_baseAddress}/artworks?page={page}&limit={limit}";
+            var endpoint = $"{_baseAddress}?name=a";
+            Console.WriteLine($"Request {endpoint}");
             var response = await _httpClient.GetAsync(endpoint);
-            response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"Request {endpoint} API Response: {json}");
-            result = JsonSerializer.Deserialize<ApiRestResponse>(json, _jsonSerializerOptions) ?? new ApiRestResponse();
+            Console.WriteLine($"Response {json}");
+            result = JsonSerializer.Deserialize<List<AnimalsData>>(json, _jsonSerializerOptions) ?? new ();
         }
         catch (Exception ex)
         {
