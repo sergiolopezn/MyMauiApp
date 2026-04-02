@@ -11,5 +11,6 @@
         <Button Text="Add task screen" Command="{Binding NavigateToAddTaskCommand}" />
         <Button Text="Hardware screen" Command="{Binding NavigateHardwareScreenCommand}" />
         <Button Text="Api Request screen" Command="{Binding NavigateToApiRequestScreenCommand}" />
+        <Button Text="Navigation screen" Command="{Binding NavigationScreenCommand}" />
     </VerticalStackLayout>
 </ContentPage>

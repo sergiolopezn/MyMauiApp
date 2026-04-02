@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Screens;
+using MyMauiApp.Screens.NavigationFeat;
 
 namespace MyMauiApp.ViewModel;
 
@@ -28,5 +29,11 @@ public partial class MainViewModel : ObservableObject
     async Task NavigateToApiRequestScreen()
     {
         await Shell.Current.GoToAsync(nameof(ApiRequestPage));
+    }
+
+    [RelayCommand]
+    async Task NavigationScreen()
+    {
+        await Shell.Current.GoToAsync(nameof(NavigationFeaturePage));
     }
 }

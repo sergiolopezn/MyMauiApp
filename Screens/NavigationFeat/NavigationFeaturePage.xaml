@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyMauiApp.Screens.NavigationFeat"
+             x:Class="MyMauiApp.Screens.NavigationFeat.NavigationFeaturePage"
+             Title="NavigationFeaturePage"
+             x:DataType="local:NavigationFeatViewModel">
+    <ContentPage.BindingContext>
+        <local:NavigationFeatViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Label 
+            Text="Navigation Feature Page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            Margin="0,20,0,0"
+            Text="Go to Next Page using NavigationPage"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Command="{Binding GoToDetailPageCommand}"
+            />
+        
+        <Button
+            Margin="0,20,0,0"
+            Text="Go to Next Page using Shell"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Command="{Binding GoToDetailPageShellCommand}"
+            />
+        <Button
+            Margin="0,20,0,0"
+            Text="Open Modal Navigation"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Command="{Binding OpenModalNavigationCommand}"
+            />
+    </VerticalStackLayout>
+</ContentPage>
