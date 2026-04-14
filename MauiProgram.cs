@@ -4,6 +4,7 @@ using MyMauiApp.Screens;
 using MyMauiApp.ViewModel;
 using MyMauiApp.Data;
 using MyMauiApp.Data.Network;
+using MyMauiApp.Screens.DataBinding;
 
 namespace MyMauiApp;
 
@@ -43,6 +44,9 @@ public static class MauiProgram
 		// Register API Request Page and ViewModel
 		builder.Services.AddSingleton<ApiRequestPage>();
 		builder.Services.AddSingleton<ApiRequestViewModel>();
+
+		builder.Services.AddSingleton<DataBindingPage>();
+		builder.Services.AddSingleton<DataBindingViewModel>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

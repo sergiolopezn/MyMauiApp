@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Screens;
+using MyMauiApp.Screens.DataBinding;
 using MyMauiApp.Screens.NavigationFeat;
 
 namespace MyMauiApp.ViewModel;
@@ -35,5 +36,11 @@ public partial class MainViewModel : ObservableObject
     async Task NavigationScreen()
     {
         await Shell.Current.GoToAsync(nameof(NavigationFeaturePage));
+    }
+
+    [RelayCommand]
+    async Task NavigateToDataBinding()
+    {
+        await Shell.Current.GoToAsync(nameof(DataBindingPage));
     }
 }

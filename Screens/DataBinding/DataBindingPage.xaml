@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyMauiApp.Screens.DataBinding.DataBindingPage"
+             xmlns:viewmodel="clr-namespace:MyMauiApp.Screens.DataBinding"
+             x:DataType="viewmodel:DataBindingViewModel"
+             Title="DataBindingPage">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label 
+                Text="{Binding Title}" 
+                />
+            <Label 
+                Text="{Binding DisplayName, Mode=OneWay}" 
+                />
+            <Entry Text="{Binding Username, Mode=TwoWay}" Placeholder="Enter Name" />
+            <Label Text="{Binding Username}" />
+            
+            <!-- The Slider's Value is bound to the Label's Text, demonstrating TwoWay binding. -->
+            <Slider x:Name="slider" Minimum="0" Maximum="100" />
+            <Label Text="{Binding Source={x:Reference slider}, Path=Value, Mode=TwoWay, StringFormat='Value: {0:F2}'}"/>
+    </VerticalStackLayout>
+</ContentPage>

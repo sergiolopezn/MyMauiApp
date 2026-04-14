@@ -12,5 +12,6 @@
         <Button Text="Hardware screen" Command="{Binding NavigateHardwareScreenCommand}" />
         <Button Text="Api Request screen" Command="{Binding NavigateToApiRequestScreenCommand}" />
         <Button Text="Navigation screen" Command="{Binding NavigationScreenCommand}" />
+        <Button Text="Data Binding screen" Command="{Binding NavigateToDataBindingCommand}" />
     </VerticalStackLayout>
 </ContentPage>
