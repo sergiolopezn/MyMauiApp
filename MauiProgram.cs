@@ -4,6 +4,8 @@ using MyMauiApp.Screens;
 using MyMauiApp.ViewModel;
 using MyMauiApp.Data;
 using MyMauiApp.Data.Network;
+using MyMauiApp.Data.Local;
+using MyMauiApp.Data.Dao;
 using MyMauiApp.Screens.DataBinding;
 
 namespace MyMauiApp;
@@ -22,6 +24,13 @@ public static class MauiProgram
 			}).UseMauiCommunityToolkit();
 		
 		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+		
+		// Register database service
+		builder.Services.AddSingleton<AppDataBase>();
+		
+		// Register DAO services
+		builder.Services.AddSingleton<UserDao>();
+		builder.Services.AddSingleton<AnimalDao>();
 		
 		// Register API services
 		builder.Services.AddSingleton<ApiRestService>();

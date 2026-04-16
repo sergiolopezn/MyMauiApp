@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="MyMauiApp">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-03-23T22:36:15.441956Z">
+        <DropdownSelection timestamp="2026-04-15T23:27:44.607698Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sergiolopez/.android/avd/Pixel_9a.avd" />

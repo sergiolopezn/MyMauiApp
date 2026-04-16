@@ -71,6 +71,8 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 		<PackageReference Include="Plugin.BLE" Version="3.0.2" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,7 +89,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Data/Network/" />
+	  <Folder Include="Data/Dao/" />
+	  <Folder Include="Data/Local/" />
+	  <Folder Include="Data/Local/Entities/" />
+	  <Folder Include="Data/Repository/Entities/" />
 	</ItemGroup>
 
 </Project>

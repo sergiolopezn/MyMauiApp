@@ -32,7 +32,7 @@
                 <DataTemplate>
                     <Frame BorderColor="LightGray" CornerRadius="10" Padding="20" Margin="5">
                         <StackLayout Padding="10">
-                            <Image Source="{Binding image_link}" HeightRequest="280" Aspect="AspectFill" />
+                            <Image Source="{Binding imageLink}" HeightRequest="280" Aspect="AspectFill" />
                             <Label Text="{Binding name}" FontSize="Large" />
                             <Label Text="{Binding origin}" FontSize="Medium" />
                         </StackLayout>

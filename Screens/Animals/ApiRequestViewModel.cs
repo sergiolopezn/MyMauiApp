@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Data;
-using MyMauiApp.ViewModel.Entity;
+using MyMauiApp.Data.Repository.Entities;
 
 namespace MyMauiApp.ViewModel;
 
@@ -11,7 +11,7 @@ public partial class ApiRequestViewModel : ObservableObject
     ApiRequestRepository _apiRequestRepository;
 
     [ObservableProperty]
-    ObservableCollection<AnimalsData> animalsData = new();
+    ObservableCollection<AnimalsModel> animalsData = new();
     
     [ObservableProperty]
     private bool isBusy = false;
@@ -30,21 +30,19 @@ public partial class ApiRequestViewModel : ObservableObject
         var page = "1"; 
         var limit = "10";
         IsBusy = true;
-        await _apiRequestRepository.GetDataAsync(page, limit).ContinueWith(task =>
+        try
+        {
+            var response = await _apiRequestRepository.GetDataAsync(page, limit);
+            AnimalsData.Clear();
+            AnimalsData = new ObservableCollection<AnimalsModel>(response ?? new List<AnimalsModel>());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
+        finally
         {
             IsBusy = false;
-            if (task.IsCompletedSuccessfully)
-            {
-                var response = task.Result;
-                AnimalsData.Clear();
-                AnimalsData = new ObservableCollection<AnimalsData>(response ?? new List<AnimalsData>());
-                return task.Result;
-            }
-            else
-            {
-                Console.WriteLine($"Error fetching data: {task.Exception?.Message}");
-                throw task.Exception ?? new Exception("An error occurred while fetching data.");
-            }
-        });
+        }
     }
 }
