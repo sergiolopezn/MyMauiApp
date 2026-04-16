@@ -27,6 +27,9 @@ public static class MauiProgram
 		
 		// Register database service
 		builder.Services.AddSingleton<AppDataBase>();
+
+		// Register preferences service
+		builder.Services.AddSingleton<AppPreferences>();
 		
 		// Register DAO services
 		builder.Services.AddSingleton<UserDao>();
