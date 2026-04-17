@@ -5,12 +5,12 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
+    <Color x:Key="Primary">#FFA000</Color>
+    <Color x:Key="PrimaryDark">#FFFBC935</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Secondary">#FFF7F3D8</Color>
+    <Color x:Key="SecondaryDarkText">#FFE5D180</Color>
+    <Color x:Key="Tertiary">#FF0B8898</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
@@ -41,4 +41,9 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+        <!-- UI State Colors -->
+    <Color x:Key="Success">#28A745</Color>
+    <Color x:Key="Warning">#FFC107</Color>
+    <Color x:Key="Danger">#DC3545</Color>
 </ResourceDictionary>

@@ -5,12 +5,40 @@
              x:DataType="viewmodel:ApiRequestViewModel"
              xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
              Title="ApiRequestPage">
+    <ContentPage.Resources>
+        <Style x:Key="labelRedStyle"
+               TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="labelGreenStyle"
+               TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="Green" />
+        </Style>
+        <Style x:Key="labelBlueStyle"
+               TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="Blue" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Success}, Dark={StaticResource White}}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Success}}" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="10,5" />
+        </Style>
+    </ContentPage.Resources>
 <ScrollView Orientation="Vertical">
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Style="{StaticResource labelGreenStyle}"/>
 
         <Button 
             Text="Click Me" 
@@ -33,7 +61,7 @@
                     <Frame BorderColor="LightGray" CornerRadius="10" Padding="20" Margin="5">
                         <StackLayout Padding="10">
                             <Image Source="{Binding imageLink}" HeightRequest="280" Aspect="AspectFill" />
-                            <Label Text="{Binding name}" FontSize="Large" />
+                            <Label Text="{Binding name}" FontSize="Large" Style="{StaticResource cardLabelStyle}" />
                             <Label Text="{Binding origin}" FontSize="Medium" />
                         </StackLayout>
                     </Frame>
