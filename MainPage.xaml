@@ -13,5 +13,6 @@
         <Button Text="Api Request screen" Command="{Binding NavigateToApiRequestScreenCommand}" />
         <Button Text="Navigation screen" Command="{Binding NavigationScreenCommand}" />
         <Button Text="Data Binding screen" Command="{Binding NavigateToDataBindingCommand}" />
+        <Button Text="Styles and Themes screen" Command="{Binding NavigateToStylesAndThemesCommand}" />
     </VerticalStackLayout>
 </ContentPage>

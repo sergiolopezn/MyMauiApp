@@ -1,6 +1,7 @@
 ﻿using MyMauiApp.Screens;
 using MyMauiApp.Screens.DataBinding;
 using MyMauiApp.Screens.NavigationFeat;
+using MyMauiApp.Screens.StylesAndThemes;
 
 namespace MyMauiApp;
 
@@ -18,5 +19,6 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(NavigationFeaturePage), typeof(NavigationFeaturePage));
 		Routing.RegisterRoute(nameof(DetailPageNavFeat), typeof(DetailPageNavFeat));
 		Routing.RegisterRoute(nameof(DataBindingPage), typeof(DataBindingPage));
+		Routing.RegisterRoute(nameof(StylesAndThemes), typeof(StylesAndThemes));
 	}
 }

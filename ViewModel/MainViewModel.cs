@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Screens;
 using MyMauiApp.Screens.DataBinding;
 using MyMauiApp.Screens.NavigationFeat;
+using MyMauiApp.Screens.StylesAndThemes;
 
 namespace MyMauiApp.ViewModel;
 
@@ -43,4 +44,11 @@ public partial class MainViewModel : ObservableObject
     {
         await Shell.Current.GoToAsync(nameof(DataBindingPage));
     }
+
+    [RelayCommand]
+    async Task NavigateToStylesAndThemes()
+    {
+        await Shell.Current.GoToAsync(nameof(StylesAndThemes));
+    }
+
 }
