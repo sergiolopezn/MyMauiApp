@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyMauiApp.Screens.StylesAndThemes.StylesAndThemes"
+             xmlns:local="clr-namespace:MyMauiApp.Screens.StylesAndThemes"
              Title="StylesAndThemes">
     <VerticalStackLayout Padding="20">
         <Label 
@@ -12,10 +13,11 @@
         <HorizontalStackLayout Spacing="10" Padding="10">
             <Label Text="Switch Theme" VerticalOptions="Center" />
             <Switch 
-            IsToggled="{Binding IsDarkTheme}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            Toggled="SwitchTheme" />
+                x:Name="darkThemeSwitch"
+                IsToggled="{Binding IsDarkThemeOn}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Toggled="SwitchTheme" />
         </HorizontalStackLayout>
         <Button Text="Outline Button"
             BackgroundColor="Transparent"

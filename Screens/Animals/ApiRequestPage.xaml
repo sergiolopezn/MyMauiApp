@@ -1,31 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyMauiApp.Screens.ApiRequestPage"
-             x:DataType="viewmodel:ApiRequestViewModel"
-             xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
-             Title="ApiRequestPage">
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="MyMauiApp.Screens.Animals.ApiRequestPage"
+            x:DataType="viewmodel:ApiRequestViewModel"
+            xmlns:viewmodel="clr-namespace:MyMauiApp.ViewModel"
+            xmlns:local="clr-namespace:MyMauiApp.Screens.Animals.components"
+            Title="ApiRequestPage">
     <ContentPage.Resources>
-        <Style x:Key="labelRedStyle"
-               TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="TextColor" Value="Red" />
-        </Style>
         <Style x:Key="labelGreenStyle"
                TargetType="Label">
             <Setter Property="HorizontalOptions" Value="Center" />
             <Setter Property="VerticalOptions" Value="Center" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="TextColor" Value="Green" />
-        </Style>
-        <Style x:Key="labelBlueStyle"
-               TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="Center" />
-            <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="TextColor" Value="Blue" />
         </Style>
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Success}, Dark={StaticResource White}}" />
@@ -41,30 +28,26 @@
             Style="{StaticResource labelGreenStyle}"/>
 
         <Button 
-            Text="Click Me" 
+            Text="Request API Data" 
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
+            Margin="20"
             Command="{Binding LoadDataCommand}"/>
 
         <ActivityIndicator 
             Color="Green"
-            
+            IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
         />
         <CollectionView
             ItemsSource="{Binding AnimalsData}"
-            VerticalOptions="FillAndExpand">    
+            VerticalOptions="Fill"
+            RemainingItemsThresholdReachedCommand="{Binding LoadMoreDataCommand}">    
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BorderColor="LightGray" CornerRadius="10" Padding="20" Margin="5">
-                        <StackLayout Padding="10">
-                            <Image Source="{Binding imageLink}" HeightRequest="280" Aspect="AspectFill" />
-                            <Label Text="{Binding name}" FontSize="Large" Style="{StaticResource cardLabelStyle}" />
-                            <Label Text="{Binding origin}" FontSize="Medium" />
-                        </StackLayout>
-                    </Frame>
+                    <local:AnimalItemView/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

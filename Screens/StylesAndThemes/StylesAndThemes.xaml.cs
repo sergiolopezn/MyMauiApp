@@ -1,10 +1,10 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace MyMauiApp.Screens.StylesAndThemes;
 
 public partial class StylesAndThemes : ContentPage
 {
-	bool darkTheme = false;
 	public StylesAndThemes()
 	{
 		InitializeComponent();
@@ -21,6 +21,7 @@ public partial class StylesAndThemes : ContentPage
 				handler.PlatformView.BorderThickness = new Microsoft.UI.Xaml.Thickness(0);
 			#endif
 		});
+		darkThemeSwitch.IsToggled = Application.Current.RequestedTheme == AppTheme.Dark;
 	}
 
 	void SwitchTheme(object sender, ToggledEventArgs e)

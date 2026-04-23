@@ -1,4 +1,5 @@
 ﻿using MyMauiApp.Screens;
+using MyMauiApp.Screens.Animals;
 using MyMauiApp.Screens.DataBinding;
 using MyMauiApp.Screens.NavigationFeat;
 using MyMauiApp.Screens.StylesAndThemes;

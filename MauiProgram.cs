@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using MyMauiApp.Screens;
+using MyMauiApp.Screens.Animals;
 using MyMauiApp.ViewModel;
 using MyMauiApp.Data;
 using MyMauiApp.Data.Network;
@@ -27,6 +28,9 @@ public static class MauiProgram
 		
 		// Register database service
 		builder.Services.AddSingleton<AppDataBase>();
+
+		// Register secure storage service
+		builder.Services.AddSingleton<AppSecurityStorage>();
 
 		// Register preferences service
 		builder.Services.AddSingleton<AppPreferences>();

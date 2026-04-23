@@ -47,8 +47,12 @@ public class ApiRequestRepository
                 name = item.name
             }).ToList();
 
+            // Insert the new data into the local database
             _animalDao.InsertAll(animals);
+
+            // Example of saving the last fetch time in both preferences and secure storage
             _appPreferences.SaveString("last_fetch_time", DateTime.Now.ToString());
+            await _appSecurityStorage.SaveStringAsync("last_fetch_time_secure", DateTime.Now.ToString());
         }
 
         var localData = _animalDao.GetAll().Select(entity => new AnimalsModel

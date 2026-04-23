@@ -76,14 +76,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Screens\AddTask.xaml">
+	  <Compile Update="Screens\AddTask.xaml.cs">
+	    <DependentUpon>AddTask.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Screens\Animals\components\LazyTestView.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Screens\AddTask.xaml.cs">
-	    <DependentUpon>AddTask.xaml</DependentUpon>
+	  <Compile Update="Screens\Animals\components\LazyTestView.xaml.cs">
+	    <DependentUpon>LazyTestView.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>

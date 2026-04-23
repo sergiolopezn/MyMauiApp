@@ -3,18 +3,23 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Data;
 using MyMauiApp.Data.Repository.Entities;
+using MyMauiApp.Screens.Animals.components;
 
 namespace MyMauiApp.ViewModel;
 
 public partial class ApiRequestViewModel : ObservableObject
 {
     ApiRequestRepository _apiRequestRepository;
+    private const int PageSize = 10;
 
     [ObservableProperty]
     ObservableCollection<AnimalsModel> animalsData = new();
     
     [ObservableProperty]
-    private bool isBusy = false;
+    bool isBusy = false;
+
+    [ObservableProperty]
+    private int currentPage = 1;
 
     public ApiRequestViewModel(ApiRequestRepository repository)
     {
@@ -26,19 +31,60 @@ public partial class ApiRequestViewModel : ObservableObject
     {
         if (IsBusy)
             return;
-        Console.WriteLine("API Called");
-        var page = "1"; 
-        var limit = "10";
+        Console.WriteLine("API Called - Initial Load");
+        
         IsBusy = true;
+        CurrentPage = 1;
+        
         try
         {
-            var response = await _apiRequestRepository.GetDataAsync(page, limit);
+            var response = await _apiRequestRepository.GetDataAsync(CurrentPage.ToString(), PageSize.ToString());
             AnimalsData.Clear();
-            AnimalsData = new ObservableCollection<AnimalsModel>(response ?? new List<AnimalsModel>());
+            if (response != null)
+            {
+                foreach (var item in response)
+                {
+                    AnimalsData.Add(item);
+                }
+            }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+
+    [RelayCommand]
+    public async Task LoadMoreData()
+    {
+        if (IsBusy)
+            return;
+
+        Console.WriteLine($"API Called - Loading More Data (Page {CurrentPage + 1})");
+        
+        IsBusy = true;
+        
+        try
+        {
+            CurrentPage++;
+            var response = await _apiRequestRepository.GetDataAsync(CurrentPage.ToString(), PageSize.ToString());
+            
+            if (response != null && response.Count > 0)
+            {
+                foreach (var item in response)
+                {
+                    AnimalsData.Add(item);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching more data: {ex.Message}");
+            CurrentPage--; // Rollback page number on error
         }
         finally
         {
