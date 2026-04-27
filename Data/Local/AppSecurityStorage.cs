@@ -1,8 +1,9 @@
 using System;
+using MyMauiApp.Data.Interfaces;
 
 namespace MyMauiApp.Data.Local;
 
-public class AppSecurityStorage
+public class AppSecurityStorage: IAppSecurityStorage
 {
     // save a string value in secure storage
     public async Task SaveStringAsync(string key, string value)

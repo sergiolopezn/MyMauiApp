@@ -1,11 +1,12 @@
 using System;
+using MyMauiApp.Data.Interfaces;
 using MyMauiApp.Data.Local;
 using MyMauiApp.Data.Local.Entities;
 using SQLite;
 
 namespace MyMauiApp.Data.Dao;
 
-public class AnimalDao
+public class AnimalDao : IAnimalDao
 {
     private readonly AppDataBase _database;
     private readonly SQLiteConnection _connection;

@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyMauiApp.Data;
+using MyMauiApp.Data.Interfaces;
 using MyMauiApp.Data.Repository.Entities;
 using MyMauiApp.Screens.Animals.components;
 
@@ -9,7 +10,7 @@ namespace MyMauiApp.ViewModel;
 
 public partial class ApiRequestViewModel : ObservableObject
 {
-    ApiRequestRepository _apiRequestRepository;
+    IApiRequestRepository _apiRequestRepository;
     private const int PageSize = 10;
 
     [ObservableProperty]
@@ -21,7 +22,7 @@ public partial class ApiRequestViewModel : ObservableObject
     [ObservableProperty]
     private int currentPage = 1;
 
-    public ApiRequestViewModel(ApiRequestRepository repository)
+    public ApiRequestViewModel(IApiRequestRepository repository)
     {
         _apiRequestRepository = repository;
     }

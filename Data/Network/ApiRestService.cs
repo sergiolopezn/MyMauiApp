@@ -1,9 +1,10 @@
 using System.Text.Json;
+using MyMauiApp.Data.Interfaces;
 using MyMauiApp.ViewModel.Entity;
 
 namespace MyMauiApp.Data.Network;
 
-public class ApiRestService
+public class ApiRestService : IApiRestService
 {
     HttpClient _httpClient;
     JsonSerializerOptions _jsonSerializerOptions;

@@ -1,8 +1,9 @@
 using System;
+using MyMauiApp.Data.Interfaces;
 
 namespace MyMauiApp.Data.Local;
 
-public class AppPreferences
+public class AppPreferences: IAppPreferences
 {
 
     // save a string value in preferences
